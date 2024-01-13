@@ -1,18 +1,23 @@
-# SDRAM Controller and SDRAM in Caravel User Project
-## Run User Project Memory Enabled counter_la Testbench
+# SoC LabD Group 10
+## Introduction
+In this lab, we replace the BRAM with SDRAM to store the data and the firmware code. We’ve done three tasks in this lab: 
+1. Replace the adder with matrix multiplier
+2. Add the prefetch function in SDRAM controller
+3. Separate data and firmware into two banks in SDRAM
+
+## File arrangement
+### Design sources
+* **firmware**: `testbench/counter_la/counter_la.c`
+* **testbench**: `testbench/counter_la/counter_la_tb.v`
+* **sdram_controller**: `rtl/user/sdram_controller.v`
+* **sections.lds**: `firmware/sections.lds`
+### Report
+* `Report.pdf`
+
+## Simulation
 Run iverilog simulation
 ```sh
-cd ~/caravel-soc_fpga-lab/lab-sdram/testbench/counter_la
+cd ~/testbench/counter_la
 source run_sim
 ```
 
-Validate the `Call function adder() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x2233` is printed
-```
-Reading counter_la.hex
-counter_la.hex loaded into memory
-Memory 5 bytes = 0x6f 0x00 0x00 0x0b 0x13
-VCD info: dumpfile counter_la.vcd opened for output.
-LA Test 1 started
-Call function adder() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x2233
-LA Test 2 passed
-```
